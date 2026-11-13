@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portal comunitario de El Cortijo III, Conchalí: historia de la toma de 1970, comités, guía vecinal y muro de recuerdos.">
+<style>:root{color-scheme:light}[hidden]{display:none!important}img{max-width:100%}</style>
+<title>El Cortijo III</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap">
+<style>
+/* Concepto: portal de barrio en una sola columna que crece a dos. Papel de cuaderno, tinta azul marino, rojo de brigada mural y madera de alerce. Bandas de ancho completo con contenido a 74rem. */
+:root{
+  --paper:#f4f1eb; --card:#fffdf9; --ink:#1b2437; --muted:#515a6d; --line:#d8d1c3;
+  --red:#c23a2e; --on-red:#ffffff; --blue:#24467a; --gold:#e3a93b; --wood:#8a5a2b;
+  --hero-bg:#1f3a6b; --hero-ink:#fff8ec; --nav-bg:#f4f1eb;
+  --pend-bg:#f0c25a; --pend-ink:#2a1f05; --focus:#1d5fd0; --soft:#ebe6db;
+  --f-display:'Bricolage Grotesque','Arial Black',system-ui,sans-serif;
+  --f-body:'Atkinson Hyperlegible',system-ui,'Segoe UI',Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#121826; --card:#1b2334; --ink:#efe9dd; --muted:#a9b0c0; --line:#323c52;
+    --red:#ef6f60; --on-red:#1b0d0a; --blue:#8db0ee; --gold:#e6b655; --wood:#c99562;
+    --hero-bg:#0c1220; --hero-ink:#fff8ec; --nav-bg:#121826; --soft:#192032; --focus:#8db0ee; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121826; --card:#1b2334; --ink:#efe9dd; --muted:#a9b0c0; --line:#323c52;
+  --red:#ef6f60; --on-red:#1b0d0a; --blue:#8db0ee; --gold:#e6b655; --wood:#c99562;
+  --hero-bg:#0c1220; --hero-ink:#fff8ec; --nav-bg:#121826; --soft:#192032; --focus:#8db0ee; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:1.125rem;line-height:1.6;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--nav-bg);z-index:30}
+h1,h2,h3{font-family:var(--f-display);line-height:1.08;margin:0;text-wrap:balance}
+p{margin:0 0 .9em}
+a{color:var(--blue);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.in{width:100%;max-width:74rem;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{scroll-margin-top:4.5rem}
+.band{padding-block:3.5rem}
+.band.alt{background:var(--soft)}
+.eyebrow{font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:0 0 .6rem}
+h2{font-size:clamp(2rem,6.4vw,3.2rem);font-weight:800;letter-spacing:-.01em}
+.lede{max-width:44rem;color:var(--muted);margin-top:1rem}
+.pend{display:inline;background:var(--pend-bg);color:var(--pend-ink);padding:.05em .4em;border-radius:4px;font-weight:700;font-size:.82em;line-height:1.7;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+/* navegación */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--nav-bg);border-bottom:1px solid var(--line)}
+.top .in{display:flex;align-items:center;gap:1rem;min-height:3.6rem}
+.brand{font-family:var(--f-display);font-weight:800;font-size:1.15rem;white-space:nowrap;color:var(--ink);text-decoration:none}
+.brand b{color:var(--red)}
+.chips{display:flex;gap:.4rem;overflow-x:auto;min-width:0;padding-block:.5rem;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips a{flex:none;text-decoration:none;color:var(--ink);padding:.45rem .9rem;border-radius:999px;font-weight:700;font-size:.98rem;min-height:44px;display:inline-flex;align-items:center}
+.chips a:hover{background:var(--soft)}
+
+/* portada */
+.hero{background:var(--hero-bg);color:var(--hero-ink);padding-top:2.6rem;overflow:hidden}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{font-size:clamp(3.4rem,17vw,9rem);font-weight:800;letter-spacing:-.03em;line-height:.92}
+.hero h1 span{color:var(--gold)}
+.hero .sub{font-family:var(--f-display);font-weight:700;font-size:clamp(1.2rem,4.5vw,1.9rem);margin-top:1rem}
+.hero .lede{color:color-mix(in srgb,var(--hero-ink) 82%,transparent);font-size:1.2rem}
+.stamp{display:inline-block;margin-top:1.4rem;border:3px solid var(--gold);color:var(--gold);padding:.35rem .9rem;font-family:var(--f-display);font-weight:800;letter-spacing:.08em;font-size:1.05rem;transform:rotate(-2deg)}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.btn{font:inherit;font-weight:700;min-height:52px;padding:.7rem 1.4rem;border-radius:10px;border:2px solid transparent;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.btn.red{background:var(--red);color:var(--on-red)}
+.btn.line{border-color:var(--hero-ink);color:var(--hero-ink);background:transparent}
+.btn.dark{background:var(--ink);color:var(--paper)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin-top:2.2rem;border-top:1px solid color-mix(in srgb,var(--hero-ink) 30%,transparent);padding-top:1.2rem}
+.facts b{display:block;font-family:var(--f-display);font-size:clamp(1.8rem,7vw,3rem);font-weight:800;color:var(--gold);line-height:1}
+.facts span{font-size:.95rem}
+.street{display:block;width:100%;height:auto;margin-top:1.6rem}
+
+/* línea de tiempo */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.6rem 0 .4rem}
+.fbtn{font:inherit;font-weight:700;min-height:48px;padding:.5rem 1.1rem;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.fbtn[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.count{color:var(--muted);font-size:.95rem;margin:.4rem 0 1.4rem}
+.tl{list-style:none;margin:0;padding:0 0 0 1.1rem;border-left:3px solid var(--line)}
+.ev{position:relative;margin-bottom:.9rem}
+.ev::before{content:"";position:absolute;left:calc(-1.1rem - 9.5px);top:1.35rem;width:16px;height:16px;border-radius:50%;background:var(--c);border:3px solid var(--paper)}
+.alt .ev::before{border-color:var(--soft)}
+.ev[data-era="antes"]{--c:var(--wood)}
+.ev[data-era="toma"]{--c:var(--red)}
+.ev[data-era="despues"]{--c:var(--blue)}
+.ev-btn{all:unset;box-sizing:border-box;display:block;width:100%;cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem}
+.ev-btn:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.ev-year{font-family:var(--f-display);font-weight:800;font-size:1.7rem;color:var(--c);line-height:1}
+.ev-title{font-family:var(--f-display);font-weight:700;font-size:1.25rem;margin-top:.35rem}
+.ev-sum{color:var(--muted);margin-top:.35rem}
+.ev-more{font-weight:700;font-size:.95rem;margin-top:.6rem;color:var(--blue)}
+.ev-detail{padding:.2rem 1.1rem 0;margin-top:.7rem;border-top:1px dashed var(--line);padding-top:.8rem;background:var(--card);border-radius:0 0 14px 14px}
+.tag{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1.5px solid currentColor;border-radius:999px;padding:.1rem .6rem;margin-left:.6rem;vertical-align:middle;color:var(--muted)}
+.tag.oral{color:var(--wood)}
+.legend{display:flex;flex-wrap:wrap;gap:1rem;color:var(--muted);font-size:.95rem}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:.4rem;vertical-align:-1px}
+
+/* tarjetas y grillas */
+.grid{display:grid;gap:1rem;margin-top:1.6rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.2rem 1rem;min-width:0}
+.card h3{font-size:1.35rem;font-weight:700;margin-bottom:.6rem}
+.card .kicker{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--wood);margin-bottom:.4rem}
+.card ul{margin:.2rem 0 .8rem;padding-left:1.2rem}
+.card li{margin-bottom:.35rem}
+.big{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.big h3,.big .kicker{color:var(--gold)}
+.big a{color:var(--gold)}
+.two{display:grid;gap:1.4rem;grid-template-columns:minmax(0,1fr);margin-top:1.6rem}
+@media (min-width:60rem){.two{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:start}.facts{max-width:34rem}}
+.sub-h{font-family:var(--f-display);font-size:1.6rem;font-weight:800;margin:2.6rem 0 0}
+blockquote{margin:1rem 0;padding:.2rem 0 .2rem 1rem;border-left:4px solid var(--red);font-family:var(--f-display);font-size:1.3rem;font-weight:700}
+blockquote small{display:block;font-family:var(--f-body);font-weight:400;font-size:.95rem;color:var(--muted);margin-top:.3rem}
+
+/* guías */
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:.8rem}
+summary{cursor:pointer;font-family:var(--f-display);font-weight:700;font-size:1.2rem;padding:1rem 1.1rem;min-height:52px;list-style:none;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.6rem;color:var(--red);line-height:1}
+details[open] summary::after{content:"–"}
+.dbody{padding:0 1.1rem 1rem}
+.dbody ol{padding-left:1.3rem;margin:.2rem 0 .8rem}
+.dbody li{margin-bottom:.45rem}
+.note{background:var(--soft);border-radius:10px;padding:.8rem 1rem;font-size:1rem;margin:.8rem 0}
+.alt .note{background:var(--paper)}
+svg text{font-family:var(--f-body)}
+.map{width:100%;height:auto;display:block}
+
+/* muro */
+.form{display:grid;gap:.9rem}
+label{font-weight:700;display:block;margin-bottom:.3rem}
+input[type=text],select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:10px;padding:.7rem .8rem;min-height:48px}
+textarea{min-height:8rem;resize:vertical}
+.hint{color:var(--muted);font-size:.92rem;margin-top:.3rem}
+.feed{display:grid;gap:1rem;min-width:0}
+.post{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;min-width:0}
+.post .meta{display:flex;flex-wrap:wrap;gap:.4rem .8rem;align-items:center;color:var(--muted);font-size:.92rem}
+.pill{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.15rem .65rem;border-radius:999px;background:var(--soft);color:var(--ink)}
+.pill.recuerdo{background:var(--wood);color:var(--paper)}
+.pill.foto{background:var(--blue);color:var(--paper)}
+.pill.ayuda{background:var(--red);color:var(--on-red)}
+.post p.txt{margin:.6rem 0;overflow-wrap:anywhere;white-space:pre-wrap}
+.post img{border-radius:10px;display:block;max-width:100%;height:auto;margin:.6rem 0}
+.row{display:flex;flex-wrap:wrap;gap:.5rem}
+.mini{font:inherit;font-weight:700;font-size:.95rem;min-height:44px;padding:.4rem .9rem;border-radius:999px;border:2px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.mini[aria-pressed="true"]{border-color:var(--red);color:var(--red)}
+.ejemplo{border-style:dashed}
+#preview{max-width:14rem;border-radius:10px;margin-top:.5rem}
+.msg{min-height:1.6rem;font-weight:700;color:var(--blue)}
+footer{background:var(--hero-bg);color:var(--hero-ink);padding-block:2.5rem}
+footer a{color:var(--gold)}
+footer h2{font-size:1.6rem;color:var(--gold)}
+footer ul{padding-left:1.2rem}
+footer .pend{margin-inline:.1rem}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="in">
+    <a class="brand" href="#inicio">El Cortijo <b>III</b></a>
+    <nav class="chips" aria-label="Secciones">
+      <a href="#historia">Historia</a>
+      <a href="#comites">Comités</a>
+      <a href="#territorio">Territorio y red</a>
+      <a href="#muro">Muro vecinal</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="inicio" class="hero">
+  <div class="in">
+    <p class="eyebrow">Población El Cortijo Norte Sector N° 3 · Conchalí</p>
+    <h1>El Cortijo <span>III</span></h1>
+    <p class="sub">Historia viva y red vecinal</p>
+    <p class="lede">Aquí no había nada más que tierra de siembra. Cinco comités de pobladores entraron el 24 de agosto de 1970, cuidaron el terreno, discutieron cada calle y levantaron una población entera. Este portal guarda esa memoria y sirve para que los vecinos de hoy se encuentren.</p>
+    <span class="stamp">TOMA · 24 AGOSTO 1970</span>
+    <div class="cta">
+      <a class="btn red" href="#historia">Recorrer la historia</a>
+      <a class="btn line" href="#muro">Dejar mi recuerdo</a>
+    </div>
+    <div class="facts" aria-label="Cifras del barrio">
+      <div><b>914</b><span>casas definitivas</span></div>
+      <div><b>5</b><span>comités de origen</span></div>
+      <div><b>1970</b><span>año de la toma</span></div>
+    </div>
+    <svg class="street" viewBox="0 0 640 110" role="img" aria-label="Fila de casitas de madera con banderas chilenas">
+      <line x1="0" y1="96" x2="640" y2="96" stroke="var(--gold)" stroke-width="3"/>
+      <g id="casas"></g>
+    </svg>
+  </div>
+</section>
+
+<section id="historia" class="band">
+  <div class="in">
+    <p class="eyebrow">Historia viva</p>
+    <h2>De las chacras a las 914 casas</h2>
+    <p class="lede">Toca un hito para leer más. Cada uno dice de dónde sale el dato. Lo que falta lo vamos completando entre todos.</p>
+    <div class="filters" role="group" aria-label="Filtrar por época" id="filters"></div>
+    <div class="legend"><span><i style="background:var(--wood)"></i>Antes de la toma</span><span><i style="background:var(--red)"></i>1970 a 1973</span><span><i style="background:var(--blue)"></i>Desde 1973</span></div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <ol class="tl" id="tl"></ol>
+  </div>
+</section>
+
+<section id="comites" class="band alt">
+  <div class="in">
+    <p class="eyebrow">Comités y protagonistas</p>
+    <h2>Cinco comités, un solo barrio</h2>
+    <p class="lede">Los comités de sin casa llegaron de distintos lugares y con distintas ideas políticas. Ninguno compartía una misma ideología. Se juntaron en asambleas, con una delegación por comité, para decidir cómo construir el barrio.</p>
+    <div class="grid" id="comitesGrid"></div>
+    <div class="note">Otras procedencias que recuerda Marcelino Cerda, sin asociarlas a un comité en particular: el sector Teniente Yávar y Aviador Acevedo, El Salto, Monterrey y La Pincoya. Él era niño en esa época, así que es un recuerdo por confirmar.</div>
+
+    <h3 class="sub-h">Ellas también tomaron el sitio</h3>
+    <div class="two">
+      <div>
+        <p>En los comités mandaban los hombres. Muchas mujeres participaban sin que se supiera, y algunos maridos les pedían que no se metieran. Aun así sostenían las casas, criaban a los hijos y empujaron decisiones clave. La tesis sobre El Cortijo propone justamente eso: que su trabajo quedó invisibilizado y hay que contarlo.</p>
+        <blockquote>Sixta Verdugo entregó la población a nombre de todas las mujeres del Cortijo.<small>Entrevista a Sixta Verdugo, 2019, en la tesis de Sebastián Comparini</small></blockquote>
+      </div>
+      <div class="card big">
+        <p class="kicker">Protagonista</p>
+        <h3>Sixta Verdugo</h3>
+        <ul>
+          <li>Dirigenta del Comité Luis Emilio Recabarren, que venía de Recoleta y Conchalí.</li>
+          <li>Con otras cinco mujeres, participó en las primeras reuniones de comités, rodeada de hombres.</li>
+          <li>Fue la primera presidenta de la junta de vecinos de su manzana y recuerda haber presidido la junta ocho años.</li>
+          <li>En julio de 1972 fue anfitriona de la fiesta de entrega de la población.</li>
+          <li>De la Unidad Popular recuerda con cariño que a los 20 años ya tenía tres hijos y su casa.</li>
+        </ul>
+        <p>Fecha de nacimiento, familia y trayectoria posterior: <span class="pend">[COMPLETAR DATO VECINAL]</span></p>
+      </div>
+    </div>
+
+    <h3 class="sub-h">Otras voces que sostienen esta historia</h3>
+    <div class="grid" id="voicesGrid"></div>
+  </div>
+</section>
+
+<section id="territorio" class="band">
+  <div class="in">
+    <p class="eyebrow">Territorio y red vecinal · UV N° 44</p>
+    <h2>Dónde estamos y cómo participar</h2>
+    <p class="lede">Lo básico para ubicarse en el mapa, entender cómo funciona una junta de vecinos y saber a quién recurrir cuando el barrio necesita algo.</p>
+
+    <div class="two">
+      <div class="card">
+        <p class="kicker">Límites del barrio</p>
+        <h3>El Cortijo Norte Sector N° 3</h3>
+        <svg class="map" viewBox="0 0 360 250" role="img" aria-label="Esquema de límites: Américo Vespucio al norte, Panamericana Norte al oeste, Avenida Independencia al este y Avenida Cardenal Caro al sur">
+          <rect x="70" y="40" width="220" height="150" rx="6" fill="var(--soft)" stroke="var(--ink)" stroke-width="2.5"/>
+          <text x="180" y="112" text-anchor="middle" fill="var(--ink)" font-size="20" font-weight="700">El Cortijo III</text>
+          <text x="180" y="136" text-anchor="middle" fill="var(--muted)" font-size="14">UV N° 44</text>
+          <line x1="40" y1="34" x2="320" y2="34" stroke="var(--red)" stroke-width="6"/>
+          <text x="180" y="22" text-anchor="middle" fill="var(--ink)" font-size="14" font-weight="700">Norte: Américo Vespucio</text>
+          <line x1="40" y1="196" x2="320" y2="196" stroke="var(--blue)" stroke-width="6"/>
+          <text x="180" y="222" text-anchor="middle" fill="var(--ink)" font-size="14" font-weight="700">Sur: Av. Cardenal Caro</text>
+          <line x1="64" y1="40" x2="64" y2="190" stroke="var(--wood)" stroke-width="6"/>
+          <text x="58" y="115" text-anchor="end" fill="var(--ink)" font-size="13" font-weight="700">Oeste</text>
+          <text x="58" y="132" text-anchor="end" fill="var(--ink)" font-size="12">Panamericana</text>
+          <text x="58" y="148" text-anchor="end" fill="var(--ink)" font-size="12">Norte</text>
+          <line x1="296" y1="40" x2="296" y2="190" stroke="var(--gold)" stroke-width="6"/>
+          <text x="304" y="115" fill="var(--ink)" font-size="13" font-weight="700">Este</text>
+          <text x="304" y="132" fill="var(--ink)" font-size="12">Av.</text>
+          <text x="304" y="148" fill="var(--ink)" font-size="12">Independencia</text>
+        </svg>
+        <p class="hint">Esquema simple, sin escala. Límites según la tesis sobre El Cortijo Norte Sector N° 3.</p>
+        <p>Es la zona más al norte de la comuna actual de Conchalí. En 1970 el terreno estaba dentro de los límites políticos de la comuna de Quilicura, según una nota de la tesis.</p>
+        <p>Unidad vecinal: UV N° 44, el número que indica este proyecto. Falta confirmarlo con el plano oficial de Conchalí. <span class="pend">[COMPLETAR DATO VECINAL]</span></p>
+      </div>
+
+      <div class="card">
+        <p class="kicker">Conchalí en datos</p>
+        <h3>La comuna que nos contiene</h3>
+        <ul>
+          <li>48 unidades vecinales y 115 poblaciones y villas.</li>
+          <li>1.060 hectáreas y un perímetro de 14 kilómetros.</li>
+          <li>156.256 habitantes estimados al 2014, unas 147 personas por hectárea.</li>
+          <li>Comuna creada el 30 de diciembre de 1927 por el Decreto Ley 8.583.</li>
+          <li>El Consejo Comunal de Organizaciones de la Sociedad Civil (COSOC) asesora a la municipalidad. Se constituyó el 31 de enero de 2012 con 22 representantes de organizaciones sociales.</li>
+        </ul>
+        <p class="hint">Fuente: informe comunal de Conchalí, datos del año 2014. Pueden haber cambiado.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-h">Junta de Vecinos Nueva Esperanza</h3>
+    <div class="two">
+      <div class="card">
+        <p class="kicker">Ficha de la junta</p>
+        <h3>Lo que sabemos y lo que falta</h3>
+        <ul>
+          <li>Nombre: Junta de Vecinos Nueva Esperanza, la que corresponde a este barrio según este proyecto.</li>
+          <li>Dirección de la sede: <span class="pend">[COMPLETAR DATO VECINAL]</span></li>
+          <li>Horario de atención: <span class="pend">[COMPLETAR DATO VECINAL]</span></li>
+          <li>Directiva vigente y fecha de la última elección: <span class="pend">[COMPLETAR DATO VECINAL]</span></li>
+          <li>Canal de contacto oficial: <span class="pend">[COMPLETAR DATO VECINAL]</span></li>
+        </ul>
+        <div class="note">Los datos de la ficha los pondremos solo cuando la propia junta los confirme.</div>
+      </div>
+
+      <div>
+        <details open>
+          <summary>¿Qué es una junta de vecinos?</summary>
+          <div class="dbody">
+            <p>Es la organización de un barrio. Representa a las personas que viven en el mismo territorio y se junta para resolver necesidades comunes: arreglar la plaza, pedir mejoras a la municipalidad, organizar fiestas o ayudar a quien lo necesita. Se rige por la Ley 19.418.</p>
+            <p>En El Cortijo hay una tradición larga. En 1972 se crearon las primeras juntas de vecinos y los delegados de manzana, y esa forma de organizarse sigue siendo nuestra herencia.</p>
+          </div>
+        </details>
+        <details>
+          <summary>¿Cómo se elige la directiva?</summary>
+          <div class="dbody">
+            <ol>
+              <li>Los socios eligen en asamblea una <b>Comisión Electoral</b>, que se forma con anticipación, unos dos meses antes según los manuales municipales.</li>
+              <li>La Comisión fija la fecha, la avisa al municipio y organiza la votación.</li>
+              <li>Se vota y se cuentan los votos.</li>
+              <li>La Comisión entrega al municipio el acta y los certificados de antecedentes de las personas electas.</li>
+              <li>Si nadie reclama dentro del plazo, la elección queda firme.</li>
+            </ol>
+            <div class="note">Resumen simple. Los plazos exactos están en la ley y los explica la Secretaría Municipal. Pregunta antes de votar.</div>
+          </div>
+        </details>
+        <details>
+          <summary>¿Y el TRICEL? ¿Quién resuelve los reclamos?</summary>
+          <div class="dbody">
+            <p>Se suele decir "TRICEL" para cualquier tribunal electoral, pero ojo con la diferencia. El TRICEL (Tribunal Calificador de Elecciones) califica las elecciones nacionales. Para las elecciones de juntas de vecinos, quien resuelve los reclamos es el <b>Tribunal Electoral Regional (TER)</b>. En la Región Metropolitana corresponde al Segundo Tribunal Electoral.</p>
+            <p>Desde la ley de 2019 (Ley 21.146) el TER ya no califica cada elección de oficio. Solo interviene si alguien presenta un reclamo, y mientras se resuelve el proceso queda en pausa.</p>
+            <p>Si dudas de una elección, guarda el acta y pide ayuda a la Secretaría Municipal o al propio tribunal: <a href="https://www.segundotribunalelectoral.cl" target="_blank" rel="noopener">segundotribunalelectoral.cl</a>.</p>
+          </div>
+        </details>
+        <details>
+          <summary>FONDEVE: plata para proyectos del barrio</summary>
+          <div class="dbody">
+            <p>Es el Fondo de Desarrollo Vecinal que crea la Ley 19.418. Lo administra la municipalidad y apoya proyectos de desarrollo comunitario que presentan las juntas de vecinos, como equipamiento para la sede, talleres o mejoras del entorno.</p>
+            <ul>
+              <li>Postula la junta de vecinos, no una persona sola.</li>
+              <li>Cada municipio publica sus bases cada año: montos, plazos y documentos. Muchas piden un acta de asamblea que apruebe el proyecto y cómo se gastará.</li>
+              <li>Bases de Conchalí, fechas y montos: <span class="pend">[COMPLETAR DATO VECINAL]</span></li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="two">
+      <div class="card">
+        <p class="kicker">Servicios municipales</p>
+        <h3>Salud y educación en Conchalí</h3>
+        <ul>
+          <li>CESFAM Dr. José Symon Ojeda: Av. El Cortijo 2895 (UV 31).</li>
+          <li>CESFAM Alberto Bachelet Martínez: Av. El Guanaco 3250 (UV 40).</li>
+          <li>Servicio Clínico de Urgencia Avanzada: Av. Independencia 5663 (UV 26).</li>
+          <li>Escuela Poeta Eusebio Lillo: Av. Emperador 2990 (UV 31).</li>
+        </ul>
+        <p class="hint">Extracto del listado municipal del informe comunal, año 2014. Verifica antes de ir. Servicios que quedan dentro de la UV 44: <span class="pend">[COMPLETAR DATO VECINAL]</span></p>
+      </div>
+      <div class="card">
+        <p class="kicker">Ayuda mutua</p>
+        <h3>Canales para colaborar</h3>
+        <ul>
+          <li>Grupo o canal de la junta de vecinos: <span class="pend">[COMPLETAR DATO VECINAL]</span></li>
+          <li>Centro cultural, clubes y organizaciones activas del barrio: <span class="pend">[COMPLETAR DATO VECINAL]</span></li>
+          <li>Mientras tanto, usa el <a href="#muro">muro vecinal</a> para ofrecer o pedir una mano.</li>
+        </ul>
+        <p class="hint">Al 2019, la tesis nombra al Anfiteatro Cortijano, al centro cultural Juanita Aguirre y a la Asamblea territorial autónoma zona norte como espacios de debate vecinal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="muro" class="band alt">
+  <div class="in">
+    <p class="eyebrow">Muro vecinal</p>
+    <h2>Cuéntanos tu Cortijo</h2>
+    <p class="lede">Un recuerdo, una foto del barrio de antes, un aviso para ofrecer o pedir ayuda. No publiques tu dirección, tu RUT ni tu teléfono.</p>
+    <div class="note"><b>Muro de prueba.</b> Lo que escribas se guarda solo en este aparato y todavía no lo ve nadie más. Cuando tengamos un lugar compartido, los mensajes serán de todos.</div>
+
+    <div class="two">
+      <form class="card form" id="form" novalidate>
+        <div>
+          <label for="tipo">¿Qué quieres compartir?</label>
+          <select id="tipo">
+            <option value="recuerdo">Un recuerdo</option>
+            <option value="foto">Una foto del barrio</option>
+            <option value="ayuda">Ayuda mutua: ofrezco o necesito</option>
+          </select>
+        </div>
+        <div>
+          <label for="autor">Tu nombre (opcional)</label>
+          <input type="text" id="autor" maxlength="40" autocomplete="off" placeholder="Por ejemplo: vecina de la manzana 12">
+        </div>
+        <div>
+          <label for="texto">Tu mensaje</label>
+          <textarea id="texto" maxlength="500" placeholder="Cuéntalo como se lo contarías a un vecino."></textarea>
+          <div class="hint"><span id="cnt">0</span> de 500 letras</div>
+        </div>
+        <div>
+          <label for="foto">Foto (opcional)</label>
+          <input type="file" id="foto" accept="image/*">
+          <img id="preview" alt="Vista previa de tu foto" hidden>
+          <button type="button" class="mini" id="quitarFoto" hidden>Quitar foto</button>
+        </div>
+        <div class="row"><button type="submit" class="btn red">Publicar en el muro</button></div>
+        <div class="msg" id="msg" role="status" aria-live="polite"></div>
+      </form>
+
+      <div>
+        <div class="filters" role="group" aria-label="Filtrar el muro" id="mfilters" style="margin-top:0"></div>
+        <div class="feed" id="feed"></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="in">
+    <h2>De dónde sale cada dato</h2>
+    <ul>
+      <li>Sebastián Comparini Ávalos, «El Cortijo Norte Sector Número 3: la lucha por la construcción de una territorialidad (24 de agosto 1970 a 11 de septiembre 1973)». Seminario de grado, Universidad de Chile. Incluye entrevistas a Sixta Verdugo y Marcelino Cerda y libros de historia local de José Chaparro, Mauricio Huenún y Olivia Ramírez.</li>
+      <li>Informe comunal de Conchalí, Municipalidad de Conchalí, datos del año 2014.</li>
+      <li>Ley 19.418 sobre juntas de vecinos y otras organizaciones comunitarias, y sus modificaciones. Manuales y bases municipales de elecciones vecinales y FONDEVE.</li>
+    </ul>
+    <p>Versión 1 del portal. Los datos marcados <span class="pend">[COMPLETAR DATO VECINAL]</span> los pondremos con aportes de los vecinos. Por ahora hay <b id="npend">0</b> por completar. El himno de El Cortijo existe y se canta, pero su letra queda para publicarla con permiso de sus autores.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var PEND="[COMPLETAR DATO VECINAL]";
+  function rich(el,text){
+    var parts=String(text).split(PEND);
+    parts.forEach(function(p,i){
+      if(i>0){var s=document.createElement("span");s.className="pend";s.textContent=PEND;el.appendChild(s);}
+      if(p){el.appendChild(document.createTextNode(p));}
+    });
+    return el;
+  }
+  function h(tag,cls,text){var e=document.createElement(tag);if(cls){e.className=cls;}if(text!=null){rich(e,text);}return e;}
+
+  /* casitas de la portada */
+  (function(){
+    var NS="http://www.w3.org/2000/svg",g=document.getElementById("casas");
+    var cols=["#c99562","#a9733f","#d9ae7b","#b78450","#c99562","#a9733f","#d9ae7b"];
+    function el(n,a){var e=document.createElementNS(NS,n);for(var k in a){e.setAttribute(k,a[k]);}return e;}
+    for(var i=0;i<7;i++){
+      var x=14+i*88, y=96;
+      g.appendChild(el("rect",{x:x,y:y-44,width:68,height:44,fill:cols[i]}));
+      g.appendChild(el("polygon",{points:(x-6)+","+(y-44)+" "+(x+34)+","+(y-72)+" "+(x+74)+","+(y-44),fill:"#6e4521"}));
+      g.appendChild(el("rect",{x:x+27,y:y-26,width:14,height:26,fill:"#3b2411"}));
+      g.appendChild(el("rect",{x:x+8,y:y-34,width:12,height:12,fill:"#fff8ec"}));
+      g.appendChild(el("rect",{x:x+48,y:y-34,width:12,height:12,fill:"#fff8ec"}));
+      if(i===1||i===4||i===6){
+        var px=x+34;
+        g.appendChild(el("line",{x1:px,y1:y-72,x2:px,y2:y-100,stroke:"#fff8ec","stroke-width":2}));
+        g.appendChild(el("rect",{x:px,y:y-100,width:10,height:5,fill:"#fff"}));
+        g.appendChild(el("rect",{x:px,y:y-100,width:4,height:5,fill:"#2c58a8"}));
+        g.appendChild(el("rect",{x:px,y:y-95,width:16,height:5,fill:"#d6392b"}));
+        g.appendChild(el("rect",{x:px+4,y:y-100,width:12,height:5,fill:"#fff"}));
+        g.appendChild(el("rect",{x:px,y:y-100,width:4,height:5,fill:"#2c58a8"}));
+      }
+    }
+  })();
+
+  /* línea de tiempo */
+  var EVENTS=[
+    {y:"1541",t:"Pedro de Valdivia llega al valle",era:"antes",tag:"doc",
+     s:"Entra al valle de Huechuraba siguiendo el camino del Inca y funda Santiago.",
+     d:["Una vez fundada la ciudad, Valdivia reparte tierras entre su gente y se queda con las de Huechuraba, que corresponden a Conchalí y Punta de Renca, en la orilla norte del Mapocho.","En 1546 el cabildo le confirma la propiedad de esos terrenos."]},
+    {y:"1558",t:"Las tierras pasan a los dominicos",era:"antes",tag:"doc",
+     s:"Inés de Suárez y su marido donan el lugar al Convento de Santo Domingo.",
+     d:["El sector pasa a llamarse Llano de Santo Domingo. Según el informe comunal, el pueblo yanacona que vivía cerca del cerro llamaba Conchalí a este valle y el nombre significaría «luz amarilla» o «luz en el agua» en mapuche. Otro estudioso propone un origen quechua, así que el significado sigue en discusión."]},
+    {y:"1823",t:"Los dominicos venden el llano",era:"antes",tag:"doc",
+     s:"Don Pedro Nolasco León y don Enrique Campino compran la gran propiedad.",
+     d:["Quedaron fuera de la venta el cementerio, que entonces era católico, y la Vía Vieja con su iglesita."]},
+    {y:"1927",t:"Nace la comuna de Conchalí",era:"antes",tag:"doc",
+     s:"Decreto Ley 8.583, del 30 de diciembre, bajo la presidencia de Carlos Ibáñez del Campo.",
+     d:["La comuna de entonces era mucho más grande que la actual: llegaba hasta los cerros de Huechuraba y el cerro San Cristóbal, con unas 6.080 hectáreas."]},
+    {y:"Siglo XX",t:"El fundo El Cortijo",era:"antes",tag:"oral",
+     s:"Tierra de siembra, sin pensar en viviendas, antes de la toma.",
+     d:["Sixta Verdugo recuerda que ahí se sembraba ají cacho de cabra y rábano, y que no había nada más.","Marcelino Cerda cuenta que, según la escritura, el predio perteneció a la familia Ruiz-Tagle y antes a la Quintrala, y que una calle lleva su nombre. Es un relato oral que no aparece en los registros históricos consultados."]},
+    {y:"1957 a 1970",t:"El camino de los sin casa",era:"antes",tag:"doc",
+     s:"Desde la toma de La Victoria, los pobladores se organizan para exigir vivienda.",
+     d:["En 1965 se crea el Ministerio de Vivienda y Urbanismo y el gobierno de la Democracia Cristiana impulsa la Operación Sitio. Para acceder había que ahorrar y estar organizado en un comité de sin casa, y pagar cuotas de la CORVI o de Corhavit.","Los cinco comités de El Cortijo salen de esa tradición."]},
+    {y:"24 de agosto de 1970",t:"La toma",era:"toma",tag:"doc",
+     s:"Cinco comités inician la toma del espacio. No fue espontánea: venía preparada.",
+     d:["Antes de entrar, los pobladores esperaron algunos meses afuera porque el grupo móvil de carabineros controlaba el acceso. Cuidaron el terreno desde donde hoy está el parque Las Rosas, en Panamericana Norte con Vespucio Norte.","Plantaron banderas chilenas junto a Independencia. Un relato dice que el campamento estaba más abanderado que un dieciocho de septiembre.","Para defenderse formaron un cuerpo de seguridad con los jefes de hogar, hombres y mujeres. Si pasaba algo, sonaban pitos y se respondía con la campana de la casa del presidente del comité, don Mario Zepeda."]},
+    {y:"1970 y 1971",t:"Los primeros meses",era:"toma",tag:"doc",
+     s:"Mediaguas con piso para algunos, tablas y cartón para otros, y el agua en baldes.",
+     d:["El Comité Luis Emilio Recabarren llegó con mediaguas con piso. Otros comités armaron casas con tablas, cartones, carpas y lo que hubiera.","Al principio no había agua. Después pusieron un grifo, y antes se acarreaba desde un almacén de la población Juanita Aguirre.","Pasados unos meses aparecieron los clubes de fútbol, los negocios en las casas y los primeros pool de El Cortijo."]},
+    {y:"1971",t:"Nieve y temblor",era:"toma",tag:"doc",
+     s:"El 21 de junio nevó y el 8 de julio tembló. Los vecinos se ayudaron.",
+     d:["Con la toma de Juanita Aguirre, que llevaba más tiempo, y los propios vecinos reconstruyeron las casas dañadas por la nieve.","El temblor de julio, bautizado «el terremoto hipócrita», asustó mucho pero no causó daños graves."]},
+    {y:"1971",t:"Llegan las máquinas",era:"toma",tag:"doc",
+     s:"La CORVI visita el campamento y comienza el trazado de calles, pasajes y manzanas.",
+     d:["Llega la señora Gloria Galicia acompañada de autoridades. Cada familia tuvo que desarmar su casita y correrla para dejar el centro libre. Los comités iban a la Oficina del Poblador, en Mac Iver con Alameda, a saber cómo avanzaba el trámite."]},
+    {y:"1971 y 1972",t:"El debate por las casas",era:"toma",tag:"doc",
+     s:"La empresa Xilotécnica propone casas de 36 m² con paneles de alerce.",
+     d:["No todos estaban contentos. En el Comité César Díaz, las mujeres presionaron: si las casitas improvisadas habían resistido nieve y temblor, las bien hechas también resistirían. En el comité de Sixta Verdugo se aprobó sin problemas.","Del acuerdo salieron 914 casas de madera sólida de alerce, en un proceso que los pobladores recuerdan como muy rápido. Hasta las calles y la pavimentación de los pasajes llegaron hechas."]},
+    {y:"Julio de 1972",t:"Entrega de las 914 casas",era:"toma",tag:"doc",
+     s:"Fiesta de recibida en un escenario armado sobre la rampa de un camión.",
+     d:["Sixta Verdugo fue una de las anfitrionas y habló por micrófono, en nombre de todas las mujeres del Cortijo, para entregar la población. Antes, los vecinos habían podido elegir con quién ser vecinos de por vida, a través de un «pareo» de familias."]},
+    {y:"1972",t:"Delegados, juntas y centros de madres",era:"toma",tag:"doc",
+     s:"Los comités dejan paso a nuevas formas de organizarse.",
+     d:["Cada manzana, de al menos veinte familias, elige un delegado que la representa ante la directiva. Nacen también las juntas de vecinos y los centros de madres.","En las reuniones se hablaba de cómo mejorar el entorno y ocupar más espacio. El barrio también tiene un himno, que habla con rebeldía de su nacimiento. La letra: " + PEND]},
+    {y:"Octubre y diciembre de 1972",t:"Paro, filas y una Navidad con regalos",era:"toma",tag:"doc",
+     s:"Faltaban productos, pero los delegados y la junta organizaron la Navidad de los niños.",
+     d:["Tras el paro de octubre se organizaron las Juntas de Abastecimiento y Control de Precios (JAP). Hubo vecinos que las valoran mucho y otros que recuerdan abusos de algunos que vendían más caro.","Marcelino Cerda, que era niño, recuerda esa Navidad como feliz: había regalos, comida y mucha fruta."]},
+    {y:"24 de agosto de 1973",t:"Tercer aniversario",era:"toma",tag:"doc",
+     s:"Uno de los últimos momentos de alegría comunitaria antes del golpe.",
+     d:["Hasta esa fecha el proyecto de vida del barrio no había sufrido una interrupción del Estado, sino más bien su apoyo."]},
+    {y:"11 de septiembre de 1973",t:"El golpe y el silencio",era:"despues",tag:"doc",
+     s:"Los dirigentes son detenidos y la organización pública se esconde.",
+     d:["Los dirigentes de El Cortijo, la mayoría de izquierda, fueron detenidos y llevados al retén Gonel, luego a Renca, y liberados. Hay dirigentes que se exiliaron y personas detenidas desaparecidas.","El miedo hizo que dejara de hablarse de política en público. La tesis habla de una territorialidad de resistencia: la comunidad siguió, pero en voz baja. Nombres de las víctimas del barrio: " + PEND]},
+    {y:"1980 a 2000",t:"De alerce a ladrillo",era:"despues",tag:"doc",
+     s:"Las casas se fueron ampliando y cambiando de material.",
+     d:["Con los años, la mayoría reemplazó el alerce por ladrillo o cemento. Algunas familias aún viven en sus casas originales de madera, que siguen siendo definitivas."]},
+    {y:"1992",t:"Conchalí queda más chica",era:"despues",tag:"doc",
+     s:"La comuna se reduce a 1.060 hectáreas.",
+     d:["Con el DFL 35-18.992 se crean las comunas de Huechuraba, Recoleta e Independencia con parte del territorio histórico de Conchalí. El Cortijo quedó en la comuna actual."]},
+    {y:"18 de octubre de 2019",t:"El estallido y los cabildos",era:"despues",tag:"doc",
+     s:"Marchas por Independencia y reflote de la organización vecinal.",
+     d:["La tesis cuenta marchas desde Los Libertadores hasta Plaza Dorsal y el trabajo de espacios como el Anfiteatro Cortijano, el centro cultural Juanita Aguirre y la Asamblea territorial autónoma zona norte. Volvió a hablarse en la calle de la memoria de la Unidad Popular."]},
+    {y:"Hoy",t:"La vida comunitaria de ahora",era:"despues",tag:"pend",
+     s:"Esta parte la escribimos entre todos.",
+     d:["Aniversarios, ferias, clubes, sedes, talleres y personas que sostienen el barrio: " + PEND]}
+  ];
+  var ERAS=[["todo","Todo"],["antes","Antes de la toma"],["toma","1970 a 1973"],["despues","Desde 1973"]];
+  var eraSel="todo";
+  var tl=document.getElementById("tl"),filters=document.getElementById("filters"),count=document.getElementById("count");
+  var TAGS={doc:"Documentado",oral:"Relato oral",pend:"Por completar"};
+
+  function renderTL(){
+    tl.textContent="";
+    var shown=0;
+    EVENTS.forEach(function(ev,i){
+      if(eraSel!=="todo"&&ev.era!==eraSel){return;}
+      shown++;
+      var li=h("li","ev");li.setAttribute("data-era",ev.era);
+      var btn=document.createElement("button");btn.className="ev-btn";btn.type="button";
+      btn.setAttribute("aria-expanded","false");btn.setAttribute("aria-controls","evd"+i);
+      var yr=h("div","ev-year",ev.y);
+      var tg=h("span","tag"+(ev.tag==="oral"?" oral":""),TAGS[ev.tag]);yr.appendChild(tg);
+      btn.appendChild(yr);
+      btn.appendChild(h("div","ev-title",ev.t));
+      btn.appendChild(h("div","ev-sum",ev.s));
+      var more=h("div","ev-more","Leer más");btn.appendChild(more);
+      var det=h("div","ev-detail");det.id="evd"+i;det.hidden=true;
+      ev.d.forEach(function(p){det.appendChild(h("p",null,p));});
+      btn.addEventListener("click",function(){
+        var open=btn.getAttribute("aria-expanded")==="true";
+        btn.setAttribute("aria-expanded",String(!open));det.hidden=open;more.textContent=open?"Leer más":"Cerrar";
+        countPend();
+      });
+      li.appendChild(btn);li.appendChild(det);tl.appendChild(li);
+    });
+    count.textContent="Mostrando "+shown+" de "+EVENTS.length+" hitos";
+    countPend();
+  }
+  ERAS.forEach(function(e){
+    var b=h("button","fbtn",e[1]);b.type="button";b.setAttribute("aria-pressed",String(e[0]==="todo"));
+    b.addEventListener("click",function(){
+      eraSel=e[0];
+      Array.prototype.forEach.call(filters.children,function(c){c.setAttribute("aria-pressed","false");});
+      b.setAttribute("aria-pressed","true");renderTL();
+    });
+    filters.appendChild(b);
+  });
+
+  /* comités */
+  var COMITES=[
+    {n:"Agustín Gresh",k:"Comité",l:["La tesis lo nombra entre los cinco comités originales, sin más datos.","Procedencia y dirigentes: "+PEND]},
+    {n:"César Díaz Muñoz",k:"Comité",l:["Su directiva, desde la vicepresidencia hacia abajo, tenía vínculo con la Democracia Cristiana.","Su dirigente José Chaparro es el autor del libro «El Cortijo 3: Origen de una población». La tesis también lo menciona como Antonio Chaparro: "+PEND,"Las mujeres de este comité pesaron en la aceptación de las casas de alerce."]},
+    {n:"Patria Vieja",k:"Comité",l:["Gente de Vivaceta, del lado donde hoy está el Líder, en Independencia con Olivo, según Sixta Verdugo.","En algunos textos aparece escrito Guardia Vieja. Nombre correcto y dirigentes: "+PEND]},
+    {n:"Luis Emilio Recabarren",k:"Comité",l:["Vinculado por completo al Partido Comunista.","Venían de Recoleta y Conchalí. Con apoyo de su partido llegaron con mediaguas con piso.","Dirigenta: Sixta Verdugo."]},
+    {n:"Carmen de Lampa",k:"Comité",l:["Gente que venía de Lampa y no se conocía antes entre sí.","Dirigentes y detalles: "+PEND]}
+  ];
+  var cg=document.getElementById("comitesGrid");
+  COMITES.forEach(function(c){
+    var card=h("div","card");
+    card.appendChild(h("p","kicker",c.k));
+    card.appendChild(h("h3",null,c.n));
+    var ul=h("ul");c.l.forEach(function(x){ul.appendChild(h("li",null,x));});
+    card.appendChild(ul);cg.appendChild(card);
+  });
+
+  var VOICES=[
+    {n:"Marcelino Cerda",k:"Hijo de pobladores",t:"Era niño cuando se tomó el terreno. Recuerda los debates entre vecinos, la brigada Ramona Parra pintando muros y las redes de grupos juveniles, centros de madres, clubes deportivos y sindicatos de cesantes."},
+    {n:"José Chaparro",k:"Dirigente y cronista",t:"Dirigente del Comité César Díaz Muñoz. Su libro «El Cortijo 3» es la base escrita más completa de la historia del barrio."},
+    {n:"Mario Zepeda",k:"Presidente de un comité",t:"Presidente del comité que tocaba la campana de alarma desde su casa. Comité al que pertenecía: "+PEND},
+    {n:"Angelina Gómez",k:"Vecina y comerciante",t:"Su familia abrió un negocio en casa con taca-tacas y después los primeros pool de El Cortijo. Dice que a todos les gustaba ir."},
+    {n:"Tú, vecina o vecino",k:"Falta tu voz",t:"Si tu familia llegó en 1970, o tienes fotos, boletas de cuotas, cartas o recuerdos, cuéntalo en el muro. Nombres a incorporar: "+PEND}
+  ];
+  var vg=document.getElementById("voicesGrid");
+  VOICES.forEach(function(v){
+    var card=h("div","card");
+    card.appendChild(h("p","kicker",v.k));card.appendChild(h("h3",null,v.n));card.appendChild(h("p",null,v.t));
+    vg.appendChild(card);
+  });
+
+  /* muro vecinal */
+  var KEY="cortijo3-muro-v1";
+  var TIPOS={recuerdo:"Recuerdo",foto:"Foto",ayuda:"Ayuda mutua"};
+  var SEEDS=[
+    {id:"e1",tipo:"recuerdo",autor:"Vecina de ejemplo",texto:"Ejemplo: aquí puedes contar cómo llegaste al Cortijo, quién era tu vecino de al lado o qué recuerdas de la nevazón de 1971.",foto:null,fecha:Date.now(),likes:0,ejemplo:true},
+    {id:"e2",tipo:"ayuda",autor:"Vecino de ejemplo",texto:"Ejemplo de aviso: ofrezco una hora los sábados para ayudar con papeles de la junta de vecinos. Así se verá un aviso de ayuda mutua.",foto:null,fecha:Date.now(),likes:0,ejemplo:true},
+    {id:"e3",tipo:"foto",autor:"Ejemplo",texto:"Ejemplo: sube una foto antigua de tu pasaje, de una fiesta o de las casitas de alerce y cuenta qué se ve.",foto:null,fecha:Date.now(),likes:0,ejemplo:true}
+  ];
+  var posts=[],liked={};
+  function load(){
+    try{var raw=localStorage.getItem(KEY);if(raw){var o=JSON.parse(raw);if(Array.isArray(o.posts)){posts=o.posts;}if(o.liked){liked=o.liked;}}}catch(e){}
+  }
+  function persist(){
+    var real=posts.filter(function(p){return !p.ejemplo;});
+    try{localStorage.setItem(KEY,JSON.stringify({posts:real,liked:liked}));}
+    catch(e){try{localStorage.setItem(KEY,JSON.stringify({posts:real.map(function(p){var q={};for(var k in p){q[k]=p[k];}q.foto=null;return q;}),liked:liked}));}catch(e2){}}
+  }
+  load();
+
+  var feed=document.getElementById("feed"),mfilters=document.getElementById("mfilters"),msgEl=document.getElementById("msg");
+  var mSel="todos";
+  function all(){return posts.concat(SEEDS);}
+  function fmt(t){try{return new Date(t).toLocaleDateString("es-CL",{day:"numeric",month:"long",year:"numeric"});}catch(e){return "";}}
+  function renderFeed(){
+    feed.textContent="";
+    var list=all().filter(function(p){return mSel==="todos"||p.tipo===mSel;});
+    if(!list.length){feed.appendChild(h("p","hint","Todavía no hay mensajes de este tipo. Anímate a abrir el muro."));}
+    list.forEach(function(p){
+      var art=h("article","post"+(p.ejemplo?" ejemplo":""));
+      var meta=h("div","meta");
+      meta.appendChild(h("span","pill "+p.tipo,TIPOS[p.tipo]||"Mensaje"));
+      meta.appendChild(h("span",null,(p.autor||"Vecino o vecina")+" · "+(p.ejemplo?"ejemplo":fmt(p.fecha))));
+      art.appendChild(meta);
+      var tx=document.createElement("p");tx.className="txt";tx.textContent=p.texto;art.appendChild(tx);
+      if(p.foto){var im=document.createElement("img");im.src=p.foto;im.alt="Foto compartida por "+(p.autor||"un vecino");art.appendChild(im);}
+      var row=h("div","row");
+      var lk=h("button","mini","Me suma · "+(p.likes||0));lk.type="button";lk.setAttribute("aria-pressed",String(!!liked[p.id]));
+      lk.addEventListener("click",function(){
+        if(liked[p.id]){liked[p.id]=false;p.likes=Math.max(0,(p.likes||0)-1);}else{liked[p.id]=true;p.likes=(p.likes||0)+1;}
+        persist();renderFeed();
+      });
+      row.appendChild(lk);
+      if(!p.ejemplo){
+        var rm=h("button","mini","Quitar");rm.type="button";
+        rm.addEventListener("click",function(){posts=posts.filter(function(x){return x.id!==p.id;});persist();renderFeed();});
+        row.appendChild(rm);
+      }
+      art.appendChild(row);feed.appendChild(art);
+    });
+  }
+  [["todos","Todos"],["recuerdo","Recuerdos"],["foto","Fotos"],["ayuda","Ayuda mutua"]].forEach(function(f){
+    var b=h("button","fbtn",f[1]);b.type="button";b.setAttribute("aria-pressed",String(f[0]==="todos"));
+    b.addEventListener("click",function(){
+      mSel=f[0];Array.prototype.forEach.call(mfilters.children,function(c){c.setAttribute("aria-pressed","false");});
+      b.setAttribute("aria-pressed","true");renderFeed();
+    });
+    mfilters.appendChild(b);
+  });
+
+  var form=document.getElementById("form"),texto=document.getElementById("texto"),cnt=document.getElementById("cnt");
+  var fotoIn=document.getElementById("foto"),prev=document.getElementById("preview"),qf=document.getElementById("quitarFoto");
+  var photo=null;
+  texto.addEventListener("input",function(){cnt.textContent=String(texto.value.length);});
+  function clearPhoto(){photo=null;fotoIn.value="";prev.hidden=true;prev.removeAttribute("src");qf.hidden=true;}
+  qf.addEventListener("click",clearPhoto);
+  fotoIn.addEventListener("change",function(){
+    var f=fotoIn.files&&fotoIn.files[0];
+    if(!f){clearPhoto();return;}
+    if(!/^image\//.test(f.type)){msgEl.textContent="Elige un archivo de imagen.";clearPhoto();return;}
+    var r=new FileReader();
+    r.onload=function(){
+      var img=new Image();
+      img.onload=function(){
+        var k=Math.min(1,720/Math.max(img.width,img.height));
+        var c=document.createElement("canvas");c.width=Math.round(img.width*k);c.height=Math.round(img.height*k);
+        c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+        photo=c.toDataURL("image/jpeg",0.72);prev.src=photo;prev.hidden=false;qf.hidden=false;msgEl.textContent="";
+      };
+      img.onerror=function(){msgEl.textContent="No pudimos leer esa foto. Prueba con otra.";clearPhoto();};
+      img.src=r.result;
+    };
+    r.readAsDataURL(f);
+  });
+  form.addEventListener("submit",function(ev){
+    ev.preventDefault();
+    var t=texto.value.trim();
+    if(t.length<5){msgEl.textContent="Escribe al menos unas palabras para publicar.";texto.focus();return;}
+    var p={id:"p"+Date.now(),tipo:document.getElementById("tipo").value,autor:document.getElementById("autor").value.trim().slice(0,40),texto:t.slice(0,500),foto:photo,fecha:Date.now(),likes:0};
+    posts.unshift(p);persist();renderFeed();
+    form.reset();clearPhoto();cnt.textContent="0";
+    msgEl.textContent="Listo, tu mensaje ya está en el muro. Solo se ve en este aparato.";
+  });
+
+  function countPend(){
+    var n=document.querySelectorAll("#npend ~ .pend, .pend").length;
+    var el=document.getElementById("npend");if(el){el.textContent=String(document.querySelectorAll("main .pend").length);}
+  }
+  renderTL();renderFeed();
+  var allPend=0;
+  (function(){
+    var cnt2=0;
+    EVENTS.forEach(function(e){if(e.tag==="pend"||e.d.join(" ").indexOf(PEND)>-1||e.s.indexOf(PEND)>-1){cnt2++;}});
+    allPend=cnt2;
+  })();
+  var np=document.getElementById("npend");
+  if(np){
+    var staticPend=document.querySelectorAll("main .pend").length;
+    var dyn=0;
+    [COMITES,VOICES].forEach(function(arr){arr.forEach(function(x){var s=(x.l?x.l.join(" "):x.t);dyn+=s.split(PEND).length-1;});});
+    EVENTS.forEach(function(e){dyn+=(e.d.join(" ")+e.s).split(PEND).length-1;});
+    np.textContent=String(staticPend+dyn);
+    countPend=function(){};
+  }
+})();
+</script>
+
+</body>
+</html>
